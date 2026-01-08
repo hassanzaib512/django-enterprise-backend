@@ -1,0 +1,7 @@
+Django
+mypy
+psycopg[binary]
+pytest
+pytest-django
+python-dotenv
+ruff
