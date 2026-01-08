@@ -1,4 +1,6 @@
 Django
+djangorestframework
+drf-spectacular
 mypy
 pytest
 pytest-django
