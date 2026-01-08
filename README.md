@@ -60,6 +60,12 @@ Endpoints:
 - `ruff check .`
 - `pytest -q`
 
+## Docs
+
+- `docs/DECISIONS.md`
+- `docs/THREAT_MODEL.md`
+- `docs/OPERATIONS.md`
+
 ## Roles & Access
 
 - Registering a user assigns the `USER` role by default.
