@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'apps.api',
     'apps.accounts.apps.AccountsConfig',
+    'apps.audit',
 ]
 
 MIDDLEWARE = [
@@ -68,6 +69,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'apps.audit.middleware.AuditLogMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
