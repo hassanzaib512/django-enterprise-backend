@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 import os
+import sys
 from datetime import timedelta
 from pathlib import Path
 
@@ -37,6 +38,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "django-insecure-change-me")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = _env_bool("DJANGO_DEBUG")
+IN_TESTS = "pytest" in sys.modules or any("pytest" in arg for arg in sys.argv)
 
 ALLOWED_HOSTS = [
     host.strip()
@@ -175,7 +177,7 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
 }
 
-if DEBUG:
+if DEBUG or IN_TESTS:
     SECURE_SSL_REDIRECT = False
 else:
     SECURE_CONTENT_TYPE_NOSNIFF = True
