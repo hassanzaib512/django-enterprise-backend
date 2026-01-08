@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_spectacular',
     'apps.api',
-    'apps.accounts',
+    'apps.accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [

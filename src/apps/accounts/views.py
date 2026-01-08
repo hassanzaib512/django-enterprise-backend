@@ -36,12 +36,14 @@ def register(request):
 @permission_classes([IsAuthenticated])
 def me(request):
     user = request.user
+    role = getattr(getattr(user, "profile", None), "role", None)
     return Response(
         {
             "id": user.id,
             "email": user.email,
             "first_name": user.first_name,
             "last_name": user.last_name,
+            "role": role,
         }
     )
 
