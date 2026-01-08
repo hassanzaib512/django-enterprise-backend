@@ -1,6 +1,10 @@
+import logging
+
 from django.db import connection
 from django.http import JsonResponse
 from django.views.decorators.http import require_GET
+
+logger = logging.getLogger(__name__)
 
 
 @require_GET
@@ -10,6 +14,7 @@ def health(_request):
 
 @require_GET
 def ready(_request):
+    logger.info("readiness check")
     try:
         connection.ensure_connection()
     except Exception:
